@@ -7,14 +7,50 @@ import io
 PREDICT_URL = "https://starsizeapp-1.onrender.com/predict/"
 PLOT_URL = "https://starsizeapp-1.onrender.com/plot/"
 
+# Set page configuration for title and favicon
+st.set_page_config(
+    page_title="Star Size Predictor",  # Title that appears on the browser tab
+    page_icon="⭐"  # Star emoji as favicon
+)
+
+# Add custom CSS to set a galaxy background image
+page_bg_img = '''
+<style>
+.stApp {
+    background-image: url("https://4kwallpapers.com/images/walls/thumbs_3t/10307.jpg");
+    background-size: cover;
+    background-position: center;
+}
+</style>
+'''
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
 st.title("Star Size Prediction App")
 
-# Instructions for uploading the CSV file
-st.write("""### Instructions for Uploading CSV File
-Please upload a CSV file that contains columns in the following order:
-- **Column 1**: Brightness of the stars (numeric values)
-- **Column 2**: Size of the stars (numeric values)
-""")
+# Box for additional information or instructions
+with st.container():
+    st.markdown(
+        """
+
+        <div style="background-color: rgba(30, 30, 30, 0.9); padding: 10px; border-radius: 10px; color: royalblue;">
+            <p>The aim of this app is to predict the sizes of stars based on their brightness.</p>
+            <p></p>
+        </div>
+        <p></p>
+        <div style="background-color: rgba(30, 30, 30, 0.9); padding: 20px; border-radius: 10px; color: white;">
+            <h3>Instructions for Uploading CSV File</h3>
+            <p>Please upload a CSV file that contains columns in the following order:</p>
+            <ul>
+                <li><b>Column 1:</b> Brightness of the stars (numeric values)</li>
+                <li><b>Column 2:</b> Size of the stars (numeric values)</li>
+            </ul>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+st.write(" ")
+
 
 # Step 1: Upload CSV file
 uploaded_file = st.file_uploader("Upload a CSV file", type=["csv"])
