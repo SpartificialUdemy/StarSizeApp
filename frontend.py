@@ -31,7 +31,6 @@ st.title("Star Size Prediction App")
 with st.container():
     st.markdown(
         """
-
         <div style="background-color: rgba(30, 30, 30, 0.9); padding: 10px; border-radius: 10px; color: royalblue;">
             <p>The aim of this app is to predict the sizes of stars based on their brightness.</p>
             <p></p>
@@ -39,6 +38,7 @@ with st.container():
         <p></p>
         <div style="background-color: rgba(30, 30, 30, 0.9); padding: 20px; border-radius: 10px; color: white;">
             <h3>Instructions for Uploading CSV File</h3>
+            <p>You can download the <a href="https://drive.google.com/uc?id=1Rp8JATmZGsTv-mlYz9KzTgYJDB4DlC5c" style="color: royalblue;">demo csv file</a> or create your own data using <a href="https://github.com/SpartificialUdemy/StarSizeApp/blob/main/data.py" style="color: royalblue;">this file</a>.</p>
             <p>Please upload a CSV file that contains columns in the following order:</p>
             <ul>
                 <li><b>Column 1:</b> Brightness of the stars (numeric values)</li>
