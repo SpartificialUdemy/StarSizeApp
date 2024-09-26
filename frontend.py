@@ -4,8 +4,8 @@ import requests
 import io
 
 # FastAPI endpoint URLs
-PREDICT_URL = "http://localhost:8000/predict/"
-PLOT_URL = "http://localhost:8000/plot/"
+PREDICT_URL = "https://starsizeapp-1.onrender.com/predict/"
+PLOT_URL = "https://starsizeapp-1.onrender.com/plot/"
 
 st.title("Star Size Prediction App")
 
