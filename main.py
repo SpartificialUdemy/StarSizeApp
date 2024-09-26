@@ -92,8 +92,8 @@ async def plot(file: UploadFile = File(...)):
 
     # Set the title and labels for the plot
     plt.title('Linear Regression for Stars Data', color='maroon', weight='bold')
-    plt.xlabel('Brightness', color='m')
-    plt.ylabel('Size', color='m')
+    plt.xlabel('Brightness', color='m', weight='bold')
+    plt.ylabel('Size', color='m', weight='bold')
     plt.legend()
 
     # Save the plot to a bytes buffer
