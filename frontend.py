@@ -3,28 +3,9 @@ import pandas as pd
 import requests
 import io
 
-# Set page configuration
-st.set_page_config(
-    page_title="Star Size Predictor",
-    page_icon="⭐",  # Star emoji as favicon
-)
-
 # FastAPI endpoint URLs
 PREDICT_URL = "https://starsizeapp-1.onrender.com/predict/"
 PLOT_URL = "https://starsizeapp-1.onrender.com/plot/"
-
-# Background image
-st.markdown(
-    """
-    <style>
-    .reportview-container {
-        background: url('bg.jpg') no-repeat center center fixed;
-        background-size: cover;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 st.title("Star Size Prediction App")
 
