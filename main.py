@@ -4,9 +4,19 @@ import numpy as np
 import matplotlib.pyplot as plt
 import io
 from fastapi.responses import StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
+
 
 # Create an instance of the FastAPI application
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["https://star-size.streamlit.app/"],  # Replace with your Streamlit app URL for security
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # Coefficients obtained from the linear regression training
 W = 1.982015  # Weight (slope)
