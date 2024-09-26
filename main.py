@@ -86,12 +86,15 @@ async def plot(file: UploadFile = File(...)):
 
     # Calculate predictions for plotting the line of best fit
     df['predictions'] = W * df['inputs'] + b
+
+    # RMSE calculation
+    rmse_score = np.mean(np.square(df['predictions'].values - df['targets'].values))
     
     # Plot the line of best fit (predictions)
     plt.plot(df['inputs'], df['predictions'], color='k', label='Predictions', linewidth=2)
 
     # Set the title and labels for the plot
-    plt.title('Linear Regression for Stars Data', color='maroon', weight='bold', fontsize=15)
+    plt.title(f'Linear Regression for Stars Data (RMSE:- {round(rmse_score, 1)})', color='maroon', weight='bold', fontsize=15)
     plt.xlabel('Brightness', color='m', weight='bold', fontsize=13)
     plt.ylabel('Size', color='m', weight='bold', fontsize=13)
     plt.legend()
