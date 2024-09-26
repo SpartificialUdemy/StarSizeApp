@@ -82,18 +82,18 @@ async def plot(file: UploadFile = File(...)):
     plt.figure(figsize=(10, 6))
     
     # Scatter plot of actual targets
-    plt.scatter(df['inputs'], df['targets'], color='blue', label='Actual Targets')
+    plt.scatter(df['inputs'], df['targets'], color='royalblue', label='Actual Targets',marker='x')
 
     # Calculate predictions for plotting the line of best fit
     df['predictions'] = W * df['inputs'] + b
     
     # Plot the line of best fit (predictions)
-    plt.plot(df['inputs'], df['predictions'], color='red', label='Predictions', linewidth=2)
+    plt.plot(df['inputs'], df['predictions'], color='k', label='Predictions', linewidth=2)
 
     # Set the title and labels for the plot
-    plt.title('Linear Regression for Stars Data', color='maroon', weight='bold')
-    plt.xlabel('Brightness', color='m', weight='bold')
-    plt.ylabel('Size', color='m', weight='bold')
+    plt.title('Linear Regression for Stars Data', color='maroon', weight='bold', fontsize=15)
+    plt.xlabel('Brightness', color='m', weight='bold', fontsize=13)
+    plt.ylabel('Size', color='m', weight='bold', fontsize=13)
     plt.legend()
 
     # Save the plot to a bytes buffer
