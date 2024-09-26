@@ -10,6 +10,7 @@ from fastapi.middleware.cors import CORSMiddleware
 # Create an instance of the FastAPI application
 app = FastAPI()
 
+# Allow streamlit to make calls to our API endpoints
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["https://star-size.streamlit.app/"],  # Replace with your Streamlit app URL for security
