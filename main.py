@@ -85,9 +85,6 @@ async def plot(file: UploadFile = File(...)):
     # Scatter plot of actual targets
     plt.scatter(df['inputs'], df['targets'], color='royalblue', label='Actual Targets',marker='x')
 
-    # Calculate predictions for plotting the line of best fit
-    df['predictions'] = W * df['inputs'] + b
-
     # RMSE calculation
     rmse_score = np.mean(np.square(df['predictions'].values - df['targets'].values))
     
