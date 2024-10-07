@@ -25,18 +25,32 @@ page_bg_img = '''
 '''
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
-st.title("Star Size Prediction App")
+st.title("Star Size Predictor 🌠")
+
+# Add a notice about potential delays due to inactivity
+with st.container():
+    st.markdown(
+        """
+        <div style="background-color: rgba(255, 0, 0, 0.8); padding: 10px; border-radius: 10px; color: white;">
+            <h4>Important Notice:</h4>
+            <p>Please be aware that you might face <a href='https://en.wikipedia.org/wiki/Cold_start_(computing)#:~:text=Cold%20start%20in%20computing%20refers,cache%20or%20starting%20up%20subsystems.'>cold start</a> issue if the app remains idle for more than 15 minutes.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
+st.text(" ")
 
 # Box for additional information or instructions
 with st.container():
     st.markdown(
         """
-        <div style="background-color: rgba(30, 30, 30, 0.9); padding: 10px; border-radius: 10px; color: magenta;">
+        <div style="background-color: rgba(204, 204, 0, 0.8); padding: 10px; border-radius: 10px; color: black;">
             <p>The aim of this app is to predict the sizes of stars based on their brightness.</p>
             <p></p>
         </div>
         <p></p>
-        <div style="background-color: rgba(30, 30, 30, 0.9); padding: 20px; border-radius: 10px; color: white;">
+        <div style="background-color: rgba(0, 0, 0, 0.8); padding: 20px; border-radius: 10px; color: white;">
             <h3>Instructions for Uploading CSV File</h3>
             <p>You can download the <a href="https://drive.google.com/uc?id=1Rp8JATmZGsTv-mlYz9KzTgYJDB4DlC5c" style="color: royalblue;">demo csv file</a> or create your own data using <a href="https://github.com/SpartificialUdemy/StarSizeApp/blob/main/data.py" style="color: royalblue;">this file</a>.</p>
             <p>Please upload a CSV file that contains columns in the following order:</p>
@@ -71,7 +85,7 @@ if uploaded_file is not None:
     # Step 3: Predict Star Sizes automatically on file upload if not already done
     if st.session_state.predicted_data is None:
 
-        with st.spinner("Generating predictions..."):
+        with st.spinner("Generating predictions... (it may take a while if you are running it for the first time or after a long time)"):
             # Send the original uploaded CSV file to the FastAPI predict endpoint
             response = requests.post(PREDICT_URL, files={"file": uploaded_file})
 
