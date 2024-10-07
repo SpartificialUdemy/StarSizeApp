@@ -31,7 +31,7 @@ st.title("Star Size Prediction App")
 with st.container():
     st.markdown(
         """
-        <div style="background-color: rgba(30, 30, 30, 0.9); padding: 10px; border-radius: 10px; color: royalblue;">
+        <div style="background-color: rgba(30, 30, 30, 0.9); padding: 10px; border-radius: 10px; color: magenta;">
             <p>The aim of this app is to predict the sizes of stars based on their brightness.</p>
             <p></p>
         </div>
