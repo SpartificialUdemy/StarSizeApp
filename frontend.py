@@ -70,6 +70,9 @@ if uploaded_file is not None:
 
     # Step 3: Predict Star Sizes automatically on file upload if not already done
     if st.session_state.predicted_data is None:
+        # Show warning about cold start
+        st.warning("You may experience cold start if you are running the app for first time.")
+
         with st.spinner("Generating predictions..."):
             # Send the original uploaded CSV file to the FastAPI predict endpoint
             response = requests.post(PREDICT_URL, files={"file": uploaded_file})
